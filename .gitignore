@@ -1,0 +1,26 @@
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Node modules
+node_modules/
+
+#!.yarn/cache
+.pnp.*
+
+# Specific build artifacts and files
+build/
+dist/
+*.tgz
+
+# Environment variables
+*.env
+!.env.example
+
+# IDE specific files
+.idea/
+.vscode/
+.eslintcache

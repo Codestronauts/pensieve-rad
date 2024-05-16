@@ -1,0 +1,26 @@
+name: Publish Docker Image to Registry
+
+on:
+    push:
+        branches: [ main ]
+    
+    workflow_dispatch:
+
+jobs:
+    build-app:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+              node-version: [18.19.0]
+
+        steps: 
+        - uses: actions/checkout@v4    
+        - name: setup node version
+          uses: actions/setup-node@v4
+          with:
+            node-version: ${{ matrix.node-version }}
+        - name: Install dependencies and build
+          run: |
+            corepack enable
+            yarn install --frozen-lockfile
+        - run: yarn run pensieve-front:build --if-present

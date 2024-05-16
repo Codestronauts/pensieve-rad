@@ -1,0 +1,10 @@
+node_modules/
+build/
+dist/
+doc/
+public/
+
+.yarnrc.yml
+yarn.lock
+
+*.md
